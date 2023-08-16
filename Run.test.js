@@ -5,7 +5,7 @@ const { describe } = require("node:test");
 const AWS_ASSUME_ROLE_ARN = process.env.AWS_ASSUME_ROLE_ARN;
 const AWS_TEST_TENANT_ID = process.env.AWS_TEST_TENANT_ID;
 const AWS_WRONG_TEST_TENANT_ID = process.env.AWS_WRONG_TEST_TENANT_ID;
-const AWS_TEST_DDB_TABLE = process.env.AWS_TEST_DDB_TABLE;
+const AWS_TEST_DDB_TABLE = process.env.AWS_TEST_DDB_TABLE_NAME;
 const time = Date.now();
 let credentials = null;
 
