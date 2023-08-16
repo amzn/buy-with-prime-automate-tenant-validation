@@ -1,0 +1,19 @@
+{
+  "name": "multi-tenancy-test-opensource",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Jonathan Kim",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.369.0",
+    "@aws-sdk/client-secrets-manager": "^3.369.0",
+    "@aws-sdk/client-sts": "^3.369.0",
+    "dotenv": "^16.3.1",
+    "jest": "^29.6.1"
+  }
+}
