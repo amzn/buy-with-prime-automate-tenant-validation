@@ -15,10 +15,12 @@ let credentials = null;
 
 console.log("TIME: "+time);
 beforeAll(async () => {
+
   const response = await assumeRoleByTag(
     AWS_ASSUME_ROLE_ARN,
     MATCHING_TENANT_ID
   );
+
   expect(response).toEqual(
     expect.objectContaining({
       Credentials: expect.anything(),
@@ -75,7 +77,7 @@ describe("DDB Test", () => {
     ).rejects.toThrow("AccessDeniedException");
   });
 
-   /* Update DDB Item Test */
+  //  /* Update DDB Item Test */
   test("Update DDB Item Success Test", async () => {
     const parameters ={
         key:"order_id",
@@ -104,16 +106,7 @@ describe("DDB Test", () => {
     )).rejects.toThrow("AccessDeniedException");
   });
   
-  /* DELETE DDB Item Test */
-  test("Delete DDB Item Fail Test", async () => {
-    await expect(ddbApis.deleteDDBItem(
-      credentials,
-      NOT_MATCHING_TENANT_ID,
-      time,
-      AWS_TEST_DDB_TABLE
-    )).rejects.toThrow("AccessDeniedException");
-  });
-
+  // /* DELETE DDB Item Test */
   test("Delete DDB Item Success Test", async () => {
     const response = await ddbApis.deleteDDBItem(
       credentials,
@@ -123,4 +116,15 @@ describe("DDB Test", () => {
     );
     expect(response).toBe(200);
   });
+
+  test("Delete DDB Item Fail Test", async () => {
+    await expect(ddbApis.deleteDDBItem(
+      credentials,
+      NOT_MATCHING_TENANT_ID,
+      time,
+      AWS_TEST_DDB_TABLE
+    )).rejects.toThrow("AccessDeniedException");
+  });
+
+
 });

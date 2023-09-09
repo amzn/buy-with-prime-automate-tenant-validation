@@ -1,101 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="8" failures="8" errors="0" time="0.865">
-  <testsuite name="undefined" errors="0" failures="8" skipped="0" timestamp="2023-09-09T04:40:35" time="0.838" tests="8">
-    <testcase classname=" CREATE DDB Item Success Test" name=" CREATE DDB Item Success Test" time="0">
-      <failure>ValidationError: 1 validation error detected: Value &apos;&quot;TEST_CORRECT_ID&quot; // The tenant Id given to the sample data in the prerequisites&apos; at &apos;tags.1.member.value&apos; failed to satisfy constraint: Member must satisfy regular expression pattern: [\p{L}\p{Z}\p{N}_.:/=+\-@]*
-    at throwDefaultError (/Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@smithy/smithy-client/dist-cjs/default-error-handler.js:8:22)
-    at /Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@smithy/smithy-client/dist-cjs/default-error-handler.js:18:39
-    at de_AssumeRoleCommandError (/Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@aws-sdk/client-sts/dist-cjs/protocols/Aws_query.js:132:20)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at /Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@smithy/middleware-serde/dist-cjs/deserializerMiddleware.js:7:24
-    at /Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@aws-sdk/middleware-signing/dist-cjs/awsAuthMiddleware.js:14:20
-    at /Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@smithy/middleware-retry/dist-cjs/retryMiddleware.js:27:46
-    at /Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@aws-sdk/middleware-logger/dist-cjs/loggerMiddleware.js:7:26
-    at Object.&lt;anonymous&gt; (/Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/Run.test.js:18:20)</failure>
+<testsuites name="jest tests" tests="8" failures="0" errors="0" time="3.341">
+  <testsuite name="undefined" errors="0" failures="0" skipped="0" timestamp="2023-09-09T06:01:34" time="3.311" tests="8">
+    <testcase classname=" CREATE DDB Item Success Test" name=" CREATE DDB Item Success Test" time="0.362">
     </testcase>
-    <testcase classname=" CREATE DDB Item Fail Test" name=" CREATE DDB Item Fail Test" time="0">
-      <failure>ValidationError: 1 validation error detected: Value &apos;&quot;TEST_CORRECT_ID&quot; // The tenant Id given to the sample data in the prerequisites&apos; at &apos;tags.1.member.value&apos; failed to satisfy constraint: Member must satisfy regular expression pattern: [\p{L}\p{Z}\p{N}_.:/=+\-@]*
-    at throwDefaultError (/Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@smithy/smithy-client/dist-cjs/default-error-handler.js:8:22)
-    at /Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@smithy/smithy-client/dist-cjs/default-error-handler.js:18:39
-    at de_AssumeRoleCommandError (/Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@aws-sdk/client-sts/dist-cjs/protocols/Aws_query.js:132:20)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at /Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@smithy/middleware-serde/dist-cjs/deserializerMiddleware.js:7:24
-    at /Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@aws-sdk/middleware-signing/dist-cjs/awsAuthMiddleware.js:14:20
-    at /Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@smithy/middleware-retry/dist-cjs/retryMiddleware.js:27:46
-    at /Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@aws-sdk/middleware-logger/dist-cjs/loggerMiddleware.js:7:26
-    at Object.&lt;anonymous&gt; (/Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/Run.test.js:18:20)</failure>
+    <testcase classname=" CREATE DDB Item Fail Test" name=" CREATE DDB Item Fail Test" time="0.311">
     </testcase>
-    <testcase classname=" Read DDB Item Success Test" name=" Read DDB Item Success Test" time="0">
-      <failure>ValidationError: 1 validation error detected: Value &apos;&quot;TEST_CORRECT_ID&quot; // The tenant Id given to the sample data in the prerequisites&apos; at &apos;tags.1.member.value&apos; failed to satisfy constraint: Member must satisfy regular expression pattern: [\p{L}\p{Z}\p{N}_.:/=+\-@]*
-    at throwDefaultError (/Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@smithy/smithy-client/dist-cjs/default-error-handler.js:8:22)
-    at /Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@smithy/smithy-client/dist-cjs/default-error-handler.js:18:39
-    at de_AssumeRoleCommandError (/Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@aws-sdk/client-sts/dist-cjs/protocols/Aws_query.js:132:20)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at /Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@smithy/middleware-serde/dist-cjs/deserializerMiddleware.js:7:24
-    at /Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@aws-sdk/middleware-signing/dist-cjs/awsAuthMiddleware.js:14:20
-    at /Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@smithy/middleware-retry/dist-cjs/retryMiddleware.js:27:46
-    at /Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@aws-sdk/middleware-logger/dist-cjs/loggerMiddleware.js:7:26
-    at Object.&lt;anonymous&gt; (/Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/Run.test.js:18:20)</failure>
+    <testcase classname=" Read DDB Item Success Test" name=" Read DDB Item Success Test" time="0.281">
     </testcase>
-    <testcase classname=" Read DDB Item Fail Test" name=" Read DDB Item Fail Test" time="0">
-      <failure>ValidationError: 1 validation error detected: Value &apos;&quot;TEST_CORRECT_ID&quot; // The tenant Id given to the sample data in the prerequisites&apos; at &apos;tags.1.member.value&apos; failed to satisfy constraint: Member must satisfy regular expression pattern: [\p{L}\p{Z}\p{N}_.:/=+\-@]*
-    at throwDefaultError (/Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@smithy/smithy-client/dist-cjs/default-error-handler.js:8:22)
-    at /Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@smithy/smithy-client/dist-cjs/default-error-handler.js:18:39
-    at de_AssumeRoleCommandError (/Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@aws-sdk/client-sts/dist-cjs/protocols/Aws_query.js:132:20)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at /Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@smithy/middleware-serde/dist-cjs/deserializerMiddleware.js:7:24
-    at /Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@aws-sdk/middleware-signing/dist-cjs/awsAuthMiddleware.js:14:20
-    at /Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@smithy/middleware-retry/dist-cjs/retryMiddleware.js:27:46
-    at /Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@aws-sdk/middleware-logger/dist-cjs/loggerMiddleware.js:7:26
-    at Object.&lt;anonymous&gt; (/Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/Run.test.js:18:20)</failure>
+    <testcase classname=" Read DDB Item Fail Test" name=" Read DDB Item Fail Test" time="0.297">
     </testcase>
-    <testcase classname=" Update DDB Item Success Test" name=" Update DDB Item Success Test" time="0">
-      <failure>ValidationError: 1 validation error detected: Value &apos;&quot;TEST_CORRECT_ID&quot; // The tenant Id given to the sample data in the prerequisites&apos; at &apos;tags.1.member.value&apos; failed to satisfy constraint: Member must satisfy regular expression pattern: [\p{L}\p{Z}\p{N}_.:/=+\-@]*
-    at throwDefaultError (/Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@smithy/smithy-client/dist-cjs/default-error-handler.js:8:22)
-    at /Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@smithy/smithy-client/dist-cjs/default-error-handler.js:18:39
-    at de_AssumeRoleCommandError (/Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@aws-sdk/client-sts/dist-cjs/protocols/Aws_query.js:132:20)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at /Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@smithy/middleware-serde/dist-cjs/deserializerMiddleware.js:7:24
-    at /Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@aws-sdk/middleware-signing/dist-cjs/awsAuthMiddleware.js:14:20
-    at /Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@smithy/middleware-retry/dist-cjs/retryMiddleware.js:27:46
-    at /Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@aws-sdk/middleware-logger/dist-cjs/loggerMiddleware.js:7:26
-    at Object.&lt;anonymous&gt; (/Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/Run.test.js:18:20)</failure>
+    <testcase classname=" Update DDB Item Success Test" name=" Update DDB Item Success Test" time="0.28">
     </testcase>
-    <testcase classname=" Update DDB Item Fail Test" name=" Update DDB Item Fail Test" time="0">
-      <failure>ValidationError: 1 validation error detected: Value &apos;&quot;TEST_CORRECT_ID&quot; // The tenant Id given to the sample data in the prerequisites&apos; at &apos;tags.1.member.value&apos; failed to satisfy constraint: Member must satisfy regular expression pattern: [\p{L}\p{Z}\p{N}_.:/=+\-@]*
-    at throwDefaultError (/Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@smithy/smithy-client/dist-cjs/default-error-handler.js:8:22)
-    at /Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@smithy/smithy-client/dist-cjs/default-error-handler.js:18:39
-    at de_AssumeRoleCommandError (/Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@aws-sdk/client-sts/dist-cjs/protocols/Aws_query.js:132:20)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at /Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@smithy/middleware-serde/dist-cjs/deserializerMiddleware.js:7:24
-    at /Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@aws-sdk/middleware-signing/dist-cjs/awsAuthMiddleware.js:14:20
-    at /Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@smithy/middleware-retry/dist-cjs/retryMiddleware.js:27:46
-    at /Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@aws-sdk/middleware-logger/dist-cjs/loggerMiddleware.js:7:26
-    at Object.&lt;anonymous&gt; (/Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/Run.test.js:18:20)</failure>
+    <testcase classname=" Update DDB Item Fail Test" name=" Update DDB Item Fail Test" time="0.316">
     </testcase>
-    <testcase classname=" Delete DDB Item Fail Test" name=" Delete DDB Item Fail Test" time="0">
-      <failure>ValidationError: 1 validation error detected: Value &apos;&quot;TEST_CORRECT_ID&quot; // The tenant Id given to the sample data in the prerequisites&apos; at &apos;tags.1.member.value&apos; failed to satisfy constraint: Member must satisfy regular expression pattern: [\p{L}\p{Z}\p{N}_.:/=+\-@]*
-    at throwDefaultError (/Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@smithy/smithy-client/dist-cjs/default-error-handler.js:8:22)
-    at /Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@smithy/smithy-client/dist-cjs/default-error-handler.js:18:39
-    at de_AssumeRoleCommandError (/Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@aws-sdk/client-sts/dist-cjs/protocols/Aws_query.js:132:20)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at /Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@smithy/middleware-serde/dist-cjs/deserializerMiddleware.js:7:24
-    at /Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@aws-sdk/middleware-signing/dist-cjs/awsAuthMiddleware.js:14:20
-    at /Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@smithy/middleware-retry/dist-cjs/retryMiddleware.js:27:46
-    at /Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@aws-sdk/middleware-logger/dist-cjs/loggerMiddleware.js:7:26
-    at Object.&lt;anonymous&gt; (/Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/Run.test.js:18:20)</failure>
+    <testcase classname=" Delete DDB Item Success Test" name=" Delete DDB Item Success Test" time="0.318">
     </testcase>
-    <testcase classname=" Delete DDB Item Success Test" name=" Delete DDB Item Success Test" time="0">
-      <failure>ValidationError: 1 validation error detected: Value &apos;&quot;TEST_CORRECT_ID&quot; // The tenant Id given to the sample data in the prerequisites&apos; at &apos;tags.1.member.value&apos; failed to satisfy constraint: Member must satisfy regular expression pattern: [\p{L}\p{Z}\p{N}_.:/=+\-@]*
-    at throwDefaultError (/Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@smithy/smithy-client/dist-cjs/default-error-handler.js:8:22)
-    at /Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@smithy/smithy-client/dist-cjs/default-error-handler.js:18:39
-    at de_AssumeRoleCommandError (/Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@aws-sdk/client-sts/dist-cjs/protocols/Aws_query.js:132:20)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at /Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@smithy/middleware-serde/dist-cjs/deserializerMiddleware.js:7:24
-    at /Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@aws-sdk/middleware-signing/dist-cjs/awsAuthMiddleware.js:14:20
-    at /Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@smithy/middleware-retry/dist-cjs/retryMiddleware.js:27:46
-    at /Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@aws-sdk/middleware-logger/dist-cjs/loggerMiddleware.js:7:26
-    at Object.&lt;anonymous&gt; (/Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/Run.test.js:18:20)</failure>
+    <testcase classname=" Delete DDB Item Fail Test" name=" Delete DDB Item Fail Test" time="0.302">
     </testcase>
   </testsuite>
 </testsuites>

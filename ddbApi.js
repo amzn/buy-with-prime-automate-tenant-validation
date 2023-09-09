@@ -31,11 +31,9 @@ async function createDDBItem(
     },
   };
   const command = new DDB.PutItemCommand(input);
-  console.log("Command", command)
 
   try {
     const response = await ddbClient.send(command);
-    console.log("Response", response);
     return response.$metadata.httpStatusCode;
   } catch (e) {
     throw new Error(e.__type);
@@ -58,13 +56,9 @@ async function readDDBItem(credentials, tenantId, time, tableName) {
     // GetItemInput
     TableName: tableName, // required
     Key: {
-      tenant_id: {
+      'tenant_id': {
         S: tenantId,
-      },
-      updated_at:{
-        S:  time.toString(),
       }
-      
     },
   };
   const command = new DDB.GetItemCommand(input);
@@ -100,10 +94,7 @@ async function updateDDBItem(credentials, tenantId, time, tableName, parameters)
       Key: {
         tenant_id: {
           S: tenantId,
-        },
-        updated_at: {
-          S: time.toString(),
-        },
+        }
       },
       "UpdateExpression": "SET #O = :o"
     };
@@ -132,11 +123,8 @@ async function deleteDDBItem(credentials, tenantId, time, tableName) {
     const input = {
       TableName: tableName, 
       Key: {
-        tenant_id: {
+        'tenant_id': {
           S: tenantId,
-        },
-        updated_at:{
-          S:  time.toString(),
         }
       },
     };

@@ -21,8 +21,8 @@ async function assumeRoleByTag(roleArn, tenantId){
         RoleSessionName:"auth-abac-test-session",
         Tags:[
             {
-                Key:"tenant_id",
-                Value:tenantId,
+                'Key': "tenant_id",
+                'Value': tenantId,
             },
         ]
     })
