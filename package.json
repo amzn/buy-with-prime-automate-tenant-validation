@@ -3,11 +3,19 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "test": "jest"
   },
-  "author": "Jonathan Kim",
+  "authors": [
+    {
+      "name": "Jonathan Kim",
+      "email": "sjunekim@amazon.com"
+    },
+    {
+      "name": "Jiwon Yeom",
+      "email": "jiwony@amazon.com"
+    }
+  ],
   "license": "ISC",
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.369.0",
