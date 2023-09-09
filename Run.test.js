@@ -1,4 +1,4 @@
-const assumeRoleByTag = require("./assumeRolebyTag");
+const assumeRoleByTag = require("./assumeRoleByTag");
 const ddbApis = require("./ddbApi");
 const { describe } = require("node:test");
 
