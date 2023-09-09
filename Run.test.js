@@ -3,9 +3,11 @@ const ddbApis = require("./ddbApi");
 const { describe } = require("node:test");
 
 const AWS_ASSUME_ROLE_ARN = process.env.AWS_ASSUME_ROLE_ARN;
-const AWS_TEST_TENANT_ID = process.env.AWS_TEST_TENANT_ID;
-const AWS_WRONG_TEST_TENANT_ID = process.env.AWS_WRONG_TEST_TENANT_ID;
-const AWS_TEST_DDB_TABLE = process.env.AWS_TEST_DDB_TABLE_NAME;
+const MATCHING_TENANT_ID = process.env.MATCHING_TENANT_ID;
+const NOT_MATCHING_TENANT_ID = process.env.NOT_MATCHING_TENANT_ID;
+const AWS_TEST_DDB_TABLE = process.env.AWS_TEST_DDB_TABLE_ARN.split('/')[4];
+
+
 const time = Date.now();
 let credentials = null;
 
@@ -15,7 +17,7 @@ console.log("TIME: "+time);
 beforeAll(async () => {
   const response = await assumeRoleByTag(
     AWS_ASSUME_ROLE_ARN,
-    AWS_TEST_TENANT_ID
+    MATCHING_TENANT_ID
   );
   expect(response).toEqual(
     expect.objectContaining({
@@ -30,7 +32,7 @@ describe("DDB Test", () => {
   test("CREATE DDB Item Success Test", async () => {
     const response = await ddbApis.createDDBItem(
       credentials,
-      AWS_TEST_TENANT_ID,
+      MATCHING_TENANT_ID,
       time,
       AWS_TEST_DDB_TABLE
     );
@@ -40,7 +42,7 @@ describe("DDB Test", () => {
     await expect(
       ddbApis.createDDBItem(
         credentials,
-        AWS_WRONG_TEST_TENANT_ID,
+        NOT_MATCHING_TENANT_ID,
         time,
         AWS_TEST_DDB_TABLE
       )
@@ -51,7 +53,7 @@ describe("DDB Test", () => {
   test("Read DDB Item Success Test", async () => {
     let response = await ddbApis.readDDBItem(
       credentials,
-      AWS_TEST_TENANT_ID,
+      MATCHING_TENANT_ID,
       time,
       AWS_TEST_DDB_TABLE
     );
@@ -66,7 +68,7 @@ describe("DDB Test", () => {
     await expect(
       ddbApis.readDDBItem(
         credentials,
-        AWS_WRONG_TEST_TENANT_ID,
+        NOT_MATCHING_TENANT_ID,
         time,
         AWS_TEST_DDB_TABLE
       )
@@ -81,7 +83,7 @@ describe("DDB Test", () => {
     }
     const response = await ddbApis.deleteDDBItem(
       credentials,
-      AWS_TEST_TENANT_ID,
+      MATCHING_TENANT_ID,
       time,
       AWS_TEST_DDB_TABLE,
       parameters
@@ -95,7 +97,7 @@ describe("DDB Test", () => {
     }
     await expect(ddbApis.updateDDBItem(
       credentials,
-      AWS_WRONG_TEST_TENANT_ID,
+      NOT_MATCHING_TENANT_ID,
       time,
       AWS_TEST_DDB_TABLE,
       parameters
@@ -106,7 +108,7 @@ describe("DDB Test", () => {
   test("Delete DDB Item Fail Test", async () => {
     await expect(ddbApis.deleteDDBItem(
       credentials,
-      AWS_WRONG_TEST_TENANT_ID,
+      NOT_MATCHING_TENANT_ID,
       time,
       AWS_TEST_DDB_TABLE
     )).rejects.toThrow("AccessDeniedException");
@@ -115,7 +117,7 @@ describe("DDB Test", () => {
   test("Delete DDB Item Success Test", async () => {
     const response = await ddbApis.deleteDDBItem(
       credentials,
-      AWS_TEST_TENANT_ID,
+      MATCHING_TENANT_ID,
       time,
       AWS_TEST_DDB_TABLE
     );

@@ -20,9 +20,15 @@ This blog post assumes an architecture where both sets of data reside in Amazon 
 
 `buy-with-prime-automate-tenant-validation` is a jest package which contains two logic — to assume a role with session tag and to perform operations against Amazon DynamoDB. The essence of test runner  `buy-with-prime-automate-tenant-validation` is that it creates two IAM Assume-Role session, one with the matching tenant identifier with the target data and the other with not matching id. The first session should successfully perform all the operations while the second one would fail with AccessDenied response.
 
-
 ## How to get started
 
+### Prerequisites
+
+1. Please set up AWS credential in the desired environment. It can be configuring AWS CLI in your local terminal or setting the right IAM Role for AWS compute resources such as Lambda.
+2. Create an IAM Role which will be assumed to perform the test. Since the test itself will be mainly conducted for IAM Assume-role session’s tag, it is suggested that the role holds full access to the AWS service that you desire to test (i.e. DynamoDB)
+3. Create sample data in the target with the mockup tenant Id. 
+
+### Configure the test runner
 1. Clone this repository
     ```
     git clone https://github.com/amzn/buy-with-prime-automate-tenant-validation.git
@@ -34,10 +40,10 @@ This blog post assumes an architecture where both sets of data reside in Amazon 
     AWS_REGION=
     AWS_ACCESS_KEY=
     AWS_SECRET_ACCESS=
-    AWS_ASSUME_ROLE_ARN=
-    AWS_TEST_TENANT_ID=
-    AWS_WRONG_TEST_TENANT_ID=
-    AWS_TEST_DDB_TABLE_NAME=
+    AWS_ASSUME_ROLE_ARN= // The IAM Role ARN that is created as a part of prerequisite
+    MATCHING_TENANT_ID="TEST_CORRECT_ID" // The tenant Id given to the sample data in the prerequisites
+    NOT_MATCHING_TENANT_ID="X"
+    AWS_TEST_DDB_TABLE_ARN= // You can choose to configure the test target table as a process environment
     ```
 
 3. Run the test
@@ -47,3 +53,52 @@ This blog post assumes an architecture where both sets of data reside in Amazon 
     npm test
     ```
 
+## How to add customization test cases
+
+Within the test tool repository, you will see assumeRoleByTag.js and ddbApi.js. While the core part of validating the assume-role session is defined in assumeRoleByTag.js , you can add your own test cases based after ddbApi. Once you complete writing the test logic, then you can add them to the test runner in Run.test.js Let’s see how this works with the example of AWS SecretsManager.
+
+
+1. Create a new javascript file to add test logics. The following code block explains the suggested structure for additional test cases.
+    ```
+    // secretsManagerApi.js
+    
+    async function createSecret (credentials, tenantId, secretName) {
+    // 1. Set the config to inject fake IAM assume role session
+    const config = {region, credentials: {
+        accessKeyId: credentials.accessKeyId,
+        secretAccessKey: credentials.SecretAccessKey,
+        sessionToken: credentials.sessionToken
+        }}
+        
+    // 2. Create the client for the AWS service that you want to test against, then run command
+    const smClient = new SM.SecretsManagerClient(config)
+        await sm.send(new CreateSecretsCommand({...}))
+    }
+    
+    async function updateSecret (credentials, tenantId, secretName) {...}  
+    async function deleteSecret (credentials, tenantId, secretName) {...}
+    async function readSecret (credentials, tenantId, secretName) {...} 
+
+    exports.createSecret = createSecret;
+    exports.readSecret = readSecret;
+    exports.updateSecret = updateSecret;
+    exports.deleteSecret = deleteSecret;
+    ```
+
+2. Open Run.test.js to add the new test cases. Make sure you add both positive and negative test cases.
+    ```
+    describe("SecretsManager Multi-tenancy test" ()=> {
+    test("CreateSecret should succeed when the request carries right tenantId and permission", async() => {
+        const response = await secretsManagerApi.createSecret(...)
+        expect(response).toBe(200)
+    })
+    
+    test("CreateSecret should fail if the tenant id does not match", async () => {
+        await expect(secretsManagerApi.createSecret(...))
+                .rejects.toThrow(AccessDeniedException)
+    })
+    
+    ....
+        
+    }) 
+    ```
