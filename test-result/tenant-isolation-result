@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="8" failures="8" errors="0" time="0.924">
-  <testsuite name="undefined" errors="0" failures="8" skipped="0" timestamp="2023-09-09T04:31:13" time="0.897" tests="8">
-    <testcase classname=" CREATE DDB Item Success Test" name=" CREATE DDB Item Success Test" time="0.001">
+<testsuites name="jest tests" tests="8" failures="8" errors="0" time="0.865">
+  <testsuite name="undefined" errors="0" failures="8" skipped="0" timestamp="2023-09-09T04:40:35" time="0.838" tests="8">
+    <testcase classname=" CREATE DDB Item Success Test" name=" CREATE DDB Item Success Test" time="0">
       <failure>ValidationError: 1 validation error detected: Value &apos;&quot;TEST_CORRECT_ID&quot; // The tenant Id given to the sample data in the prerequisites&apos; at &apos;tags.1.member.value&apos; failed to satisfy constraint: Member must satisfy regular expression pattern: [\p{L}\p{Z}\p{N}_.:/=+\-@]*
     at throwDefaultError (/Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@smithy/smithy-client/dist-cjs/default-error-handler.js:8:22)
     at /Users/jiwony/sandbox/buy-with-prime-automate-tenant-validation/node_modules/@smithy/smithy-client/dist-cjs/default-error-handler.js:18:39
