@@ -31,10 +31,11 @@ async function createDDBItem(
     },
   };
   const command = new DDB.PutItemCommand(input);
-
+  console.log("Command", command)
 
   try {
     const response = await ddbClient.send(command);
+    console.log("Response", response);
     return response.$metadata.httpStatusCode;
   } catch (e) {
     throw new Error(e.__type);
