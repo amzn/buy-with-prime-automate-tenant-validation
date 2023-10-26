@@ -38,8 +38,6 @@ This blog post assumes an architecture where both sets of data reside in Amazon 
 2. Create a file named `.env` to set up the environment variables. It requires you to have the following fields. Keep in mind that this sample respoitory uses static credentials for the test purpose only.
     ```
     AWS_REGION=
-    AWS_ACCESS_KEY=
-    AWS_SECRET_ACCESS=
     AWS_ASSUME_ROLE_ARN= // The IAM Role ARN that is created as a part of prerequisite
     MATCHING_TENANT_ID="TEST_CORRECT_ID" // The tenant Id given to the sample data in the prerequisites
     NOT_MATCHING_TENANT_ID="X"

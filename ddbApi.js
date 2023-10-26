@@ -1,12 +1,8 @@
 const DDB = require("@aws-sdk/client-dynamodb");
 const AWS_REGION = process.env.AWS_REGION;
 
-async function createDDBItem(
-  credentials,
-  tenantId,
-  time,
-  tableName,
-) {
+// Function to create a new item in DynamoDB
+async function createDDBItem(credentials, tenantId, time, tableName) {
   const config = {
     region: AWS_REGION,
     credentials: {
@@ -40,6 +36,7 @@ async function createDDBItem(
   }
 }
 
+// Function to read an item from DynamoDB
 async function readDDBItem(credentials, tenantId, time, tableName) {
   const config = {
     region: AWS_REGION,
@@ -53,8 +50,7 @@ async function readDDBItem(credentials, tenantId, time, tableName) {
   const ddbClient = new DDB.DynamoDBClient(config);
 
   const input = {
-    // GetItemInput
-    TableName: tableName, // required
+    TableName: tableName,
     Key: {
       'tenant_id': {
         S: tenantId,
@@ -70,6 +66,7 @@ async function readDDBItem(credentials, tenantId, time, tableName) {
   }
 }
 
+// Function to update an item in DynamoDB
 async function updateDDBItem(credentials, tenantId, time, tableName, parameters) {
     const config = {
       region: AWS_REGION,
@@ -107,7 +104,7 @@ async function updateDDBItem(credentials, tenantId, time, tableName, parameters)
     }
   }
 
-
+// Function to delete an item from DynamoDB
 async function deleteDDBItem(credentials, tenantId, time, tableName) {
     const config = {
       region: AWS_REGION,
@@ -121,7 +118,7 @@ async function deleteDDBItem(credentials, tenantId, time, tableName) {
     const ddbClient = new DDB.DynamoDBClient(config);
   
     const input = {
-      TableName: tableName, 
+      TableName: tableName,
       Key: {
         'tenant_id': {
           S: tenantId,
@@ -137,6 +134,7 @@ async function deleteDDBItem(credentials, tenantId, time, tableName) {
     }
   }
 
+// Export the functions for use in other modules
 exports.createDDBItem = createDDBItem;
 exports.readDDBItem = readDDBItem;
 exports.updateDDBItem = updateDDBItem;
